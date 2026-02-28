@@ -1,972 +1,366 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solved Examples Bank | Ishu (My Wife) | Board 2026</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Inter:wght@400;500;700&display=swap"
-        rel="stylesheet">
-    <script>window.MathJax = { tex: { inlineMath: [['$', '$']], displayMath: [['$$', '$$']] }, options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea'] } };</script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <style>
-        :root {
-            --bg: #04060f;
-            --card: #0d1020;
-            --border: rgba(255, 255, 255, 0.08);
-            --gold: #f59e0b;
-            --blue: #60a5fa;
-            --green: #34d399;
-            --pink: #f472b6;
-            --purple: #a78bfa;
-            --red: #fb7185;
-            --text: #e2e8f0;
-            --muted: #94a3b8;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-            background-image: radial-gradient(ellipse at 80% 20%, rgba(96, 165, 250, .06) 0%, transparent 50%);
-        }
-
-        .back-btn {
-            position: fixed;
-            top: 1.5rem;
-            left: 1.5rem;
-            z-index: 100;
-            background: rgba(14, 18, 35, .9);
-            border: 1px solid var(--border);
-            padding: .6rem 1.2rem;
-            border-radius: 12px;
-            color: #fff;
-            text-decoration: none;
-            font-size: .82rem;
-            font-weight: 600;
-            backdrop-filter: blur(10px);
-            transition: .2s;
-            display: flex;
-            align-items: center;
-            gap: .4rem;
-        }
-
-        .back-btn:hover {
-            border-color: var(--blue);
-        }
-
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 4rem 2rem 5rem;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 2rem 0 2.5rem;
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(96, 165, 250, .12);
-            color: var(--blue);
-            padding: .35rem 1.2rem;
-            border-radius: 50px;
-            font-size: .68rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border: 1px solid rgba(96, 165, 250, .3);
-            margin-bottom: 1rem;
-        }
-
-        .hero h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: .5rem;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--blue), var(--green));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero p {
-            color: var(--muted);
-            font-size: .95rem;
-            max-width: 580px;
-            margin: 0 auto;
-        }
-
-        /* TABS */
-        .ch-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: .5rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-
-        .ch-tab {
-            padding: .5rem 1rem;
-            border-radius: 50px;
-            border: 1px solid var(--border);
-            background: transparent;
-            color: var(--muted);
-            font-size: .78rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: .2s;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .ch-tab:hover,
-        .ch-tab.active {
-            border-color: var(--blue);
-            color: var(--blue);
-            background: rgba(96, 165, 250, .08);
-        }
-
-        /* SECTION */
-        .ch-section {
-            display: none;
-        }
-
-        .ch-section.active {
-            display: block;
-        }
-
-        .section-head {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: .8rem;
-        }
-
-        .marks-badge {
-            font-size: .7rem;
-            font-weight: 800;
-            padding: .25rem .8rem;
-            border-radius: 50px;
-            background: rgba(245, 158, 11, .12);
-            color: var(--gold);
-            border: 1px solid rgba(245, 158, 11, .3);
-        }
-
-        /* EXAMPLE CARD */
-        .example-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 1.8rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .example-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-        }
-
-        .ex-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1.2rem;
-            flex-wrap: wrap;
-            gap: .5rem;
-        }
-
-        .ex-num {
-            font-family: 'Outfit', sans-serif;
-            font-size: .8rem;
-            font-weight: 800;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .ex-marks {
-            font-size: .72rem;
-            font-weight: 700;
-            padding: .25rem .7rem;
-            border-radius: 8px;
-        }
-
-        .ex-type {
-            font-size: .7rem;
-            font-weight: 700;
-            padding: .2rem .6rem;
-            border-radius: 6px;
-            background: rgba(255, 255, 255, .05);
-            color: var(--muted);
-        }
-
-        .question-block {
-            background: rgba(255, 255, 255, .03);
-            border: 1px solid rgba(255, 255, 255, .06);
-            border-radius: 12px;
-            padding: 1rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .q-label {
-            font-size: .62rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--blue);
-            margin-bottom: .5rem;
-        }
-
-        .q-text {
-            font-size: .95rem;
-            color: #e2e8f0;
-            line-height: 1.6;
-        }
-
-        /* SOLUTION */
-        .solution-toggle {
-            background: rgba(245, 158, 11, .08);
-            border: 1px solid rgba(245, 158, 11, .2);
-            border-radius: 10px;
-            padding: .6rem 1.2rem;
-            color: var(--gold);
-            font-size: .83rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: .2s;
-            font-family: 'Inter', sans-serif;
-            width: 100%;
-        }
-
-        .solution-toggle:hover {
-            background: rgba(245, 158, 11, .15);
-        }
-
-        .solution-body {
-            display: none;
-            margin-top: 1rem;
-        }
-
-        .solution-body.open {
-            display: block;
-        }
-
-        .step {
-            display: flex;
-            gap: .8rem;
-            margin-bottom: .9rem;
-            align-items: flex-start;
-        }
-
-        .step-num {
-            background: rgba(96, 165, 250, .15);
-            color: var(--blue);
-            border-radius: 8px;
-            padding: .15rem .5rem;
-            font-size: .7rem;
-            font-weight: 800;
-            flex-shrink: 0;
-            margin-top: .2rem;
-        }
-
-        .step-content {
-            font-size: .88rem;
-            line-height: 1.7;
-            color: #e2e8f0;
-        }
-
-        .step-content .formula {
-            display: block;
-            background: rgba(0, 0, 0, .3);
-            border-radius: 8px;
-            padding: .5rem .8rem;
-            margin: .3rem 0;
-            border-left: 3px solid var(--blue);
-        }
-
-        .answer-box {
-            background: linear-gradient(135deg, rgba(52, 211, 153, .08), rgba(245, 158, 11, .08));
-            border: 1px solid rgba(52, 211, 153, .25);
-            border-radius: 12px;
-            padding: 1rem;
-            margin-top: 1rem;
-            text-align: center;
-        }
-
-        .answer-label {
-            font-size: .65rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: var(--green);
-            text-transform: uppercase;
-            margin-bottom: .4rem;
-        }
-
-        .answer-val {
-            font-size: 1rem;
-            color: #fff;
-            font-weight: 700;
-        }
-
-        .cbse-tip {
-            background: rgba(251, 113, 133, .06);
-            border: 1px solid rgba(251, 113, 133, .2);
-            border-radius: 10px;
-            padding: .8rem;
-            margin-top: .8rem;
-            font-size: .8rem;
-            color: #e2e8f0;
-        }
-
-        .cbse-tip strong {
-            color: var(--red);
-        }
-
-        .heart {
-            color: #f43f5e;
-            animation: beat 1.2s infinite;
-            display: inline-block;
-        }
-
-        @keyframes beat {
-
-            0%,
-            100% {
-                transform: scale(1)
-            }
-
-            50% {
-                transform: scale(1.25)
-            }
-        }
-
-        footer {
-            text-align: center;
-            padding: 2.5rem 0 1rem;
-            color: var(--muted);
-            border-top: 1px solid var(--border);
-            margin-top: 3rem;
-            font-size: .8rem;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solved Examples Bank | Ishu (My Wife) | Board 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<script>window.MathJax={tex:{inlineMath:[['$','$']],displayMath:[['$$','$$']]},options:{skipHtmlTags:['script','noscript','style','textarea']}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--bg:#04060f;--card:#0d1020;--border:rgba(255,255,255,0.08);--gold:#f59e0b;--blue:#60a5fa;--green:#34d399;--pink:#f472b6;--purple:#a78bfa;--red:#fb7185;--text:#e2e8f0;--muted:#94a3b8;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);background-image:radial-gradient(ellipse at 80% 20%,rgba(96,165,250,.06) 0%,transparent 50%);}
+.back-btn{position:fixed;top:1.5rem;left:1.5rem;z-index:100;background:rgba(14,18,35,.9);border:1px solid var(--border);padding:.6rem 1.2rem;border-radius:12px;color:#fff;text-decoration:none;font-size:.82rem;font-weight:600;backdrop-filter:blur(10px);transition:.2s;}
+.back-btn:hover{border-color:var(--blue);}
+.container{max-width:960px;margin:0 auto;padding:4rem 2rem 5rem;}
+.hero{text-align:center;padding:2rem 0 2.5rem;}
+.badge{display:inline-block;background:rgba(96,165,250,.12);color:var(--blue);padding:.35rem 1.2rem;border-radius:50px;font-size:.68rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(96,165,250,.3);margin-bottom:1rem;}
+.hero h1{font-family:'Outfit',sans-serif;font-size:clamp(2rem,5vw,3rem);font-weight:800;color:#fff;margin-bottom:.5rem;}
+.hero h1 span{background:linear-gradient(135deg,var(--blue),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero p{color:var(--muted);font-size:.95rem;max-width:580px;margin:0 auto;}
+.ch-tabs{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-bottom:2rem;}
+.ch-tab{padding:.45rem .9rem;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:.75rem;font-weight:600;cursor:pointer;transition:.2s;font-family:'Inter',sans-serif;}
+.ch-tab:hover,.ch-tab.active{border-color:var(--blue);color:var(--blue);background:rgba(96,165,250,.08);}
+.ch-section{display:none;}
+.ch-section.active{display:block;}
+.section-head{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:1.5rem;display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;}
+.marks-badge{font-size:.68rem;font-weight:800;padding:.2rem .7rem;border-radius:50px;background:rgba(245,158,11,.12);color:var(--gold);border:1px solid rgba(245,158,11,.3);}
+.example-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.6rem;margin-bottom:1.4rem;position:relative;overflow:hidden;}
+.example-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent,var(--blue));}
+.ex-header{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem;flex-wrap:wrap;}
+.ex-num{font-size:.72rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;}
+.ex-marks{font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:6px;}
+.ex-type{font-size:.68rem;font-weight:700;padding:.2rem .6rem;border-radius:6px;background:rgba(255,255,255,.05);color:var(--muted);}
+.question-block{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:.9rem;margin-bottom:1rem;}
+.q-label{font-size:.6rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:.4rem;}
+.q-text{font-size:.92rem;color:#e2e8f0;line-height:1.6;}
+.solution-toggle{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:.55rem 1.1rem;color:var(--gold);font-size:.8rem;font-weight:700;cursor:pointer;transition:.2s;font-family:'Inter',sans-serif;width:100%;}
+.solution-toggle:hover{background:rgba(245,158,11,.15);}
+.solution-body{display:none;margin-top:1rem;}
+.solution-body.open{display:block;}
+.step{display:flex;gap:.7rem;margin-bottom:.8rem;align-items:flex-start;}
+.step-num{background:rgba(96,165,250,.15);color:var(--blue);border-radius:6px;padding:.12rem .45rem;font-size:.68rem;font-weight:800;flex-shrink:0;margin-top:.2rem;}
+.step-content{font-size:.86rem;line-height:1.7;color:#e2e8f0;}
+.formula{display:block;background:rgba(0,0,0,.3);border-radius:8px;padding:.45rem .75rem;margin:.3rem 0;border-left:3px solid var(--blue);}
+.answer-box{background:linear-gradient(135deg,rgba(52,211,153,.08),rgba(245,158,11,.08));border:1px solid rgba(52,211,153,.25);border-radius:10px;padding:.9rem;margin-top:.9rem;text-align:center;}
+.answer-label{font-size:.6rem;font-weight:800;letter-spacing:2px;color:var(--green);text-transform:uppercase;margin-bottom:.3rem;}
+.answer-val{font-size:.95rem;color:#fff;font-weight:700;}
+.cbse-tip{background:rgba(251,113,133,.06);border:1px solid rgba(251,113,133,.2);border-radius:8px;padding:.7rem;margin-top:.7rem;font-size:.78rem;color:#e2e8f0;}
+.cbse-tip strong{color:var(--red);}
+.heart{color:#f43f5e;animation:beat 1.2s infinite;display:inline-block;}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+footer{text-align:center;padding:2.5rem 0 1rem;color:var(--muted);border-top:1px solid var(--border);margin-top:3rem;font-size:.8rem;}
+</style>
 </head>
-
 <body>
-    <a href="https://thoratpratik2323-hue.github.io/ishu-math-hub/" class="back-btn">â† Back to Hub</a>
-    <div class="container">
-        <div class="hero">
-            <div class="badge">ðŸ““ Step-by-Step Solutions</div>
-            <h1>Solved <span>Examples Bank</span> ðŸ““</h1>
-            <p>Board-style step-by-step solved questions for every chapter. <strong>Ishu (My Wife)</strong> â€” learn
-                exactly HOW to write answers to get full marks! ðŸŽ¯</p>
-        </div>
+<a href="https://thoratpratik2323-hue.github.io/ishu-math-hub/" class="back-btn"> Back to Hub</a>
+<div class="container">
+<div class="hero">
+  <div class="badge"> Step-by-Step Solutions</div>
+  <h1>Solved <span>Examples Bank</span> </h1>
+  <p>All 13 chapters  board-style step-by-step solved questions. <strong>Ishu (My Wife)</strong>  learn exactly HOW to write answers for full marks! </p>
+</div>
 
-        <div class="ch-tabs">
-            <button class="ch-tab active" onclick="showCh('ch7',this)">Ch 7: Integrals</button>
-            <button class="ch-tab" onclick="showCh('ch13',this)">Ch 13: Probability</button>
-            <button class="ch-tab" onclick="showCh('ch5',this)">Ch 5: Continuity</button>
-            <button class="ch-tab" onclick="showCh('ch4',this)">Ch 4: Determinants</button>
-            <button class="ch-tab" onclick="showCh('ch6',this)">Ch 6: AOD</button>
-            <button class="ch-tab" onclick="showCh('ch8',this)">Ch 8: AOI</button>
-            <button class="ch-tab" onclick="showCh('ch12',this)">Ch 12: LPP</button>
-            <button class="ch-tab" onclick="showCh('ch1',this)">Ch 1: Relations</button>
-            <button class="ch-tab" onclick="showCh('ch2',this)">Ch 2: Inv. Trig</button>
-            <button class="ch-tab" onclick="showCh('ch3',this)">Ch 3: Matrices</button>
-            <button class="ch-tab" onclick="showCh('ch9',this)">Ch 9: Diff. Eq.</button>
-            <button class="ch-tab" onclick="showCh('ch10',this)">Ch 10: Vectors</button>
-            <button class="ch-tab" onclick="showCh('ch11',this)">Ch 11: 3D Geometry</button>
-        </div>
+<div class="ch-tabs">
+  <button class="ch-tab active" onclick="showCh('ch1',this)">Ch 1: Relations</button>
+  <button class="ch-tab" onclick="showCh('ch2',this)">Ch 2: Inv. Trig</button>
+  <button class="ch-tab" onclick="showCh('ch3',this)">Ch 3: Matrices</button>
+  <button class="ch-tab" onclick="showCh('ch4',this)">Ch 4: Determinants</button>
+  <button class="ch-tab" onclick="showCh('ch5',this)">Ch 5: Continuity</button>
+  <button class="ch-tab" onclick="showCh('ch6',this)">Ch 6: AOD</button>
+  <button class="ch-tab" onclick="showCh('ch7',this)">Ch 7: Integrals</button>
+  <button class="ch-tab" onclick="showCh('ch8',this)">Ch 8: AOI</button>
+  <button class="ch-tab" onclick="showCh('ch9',this)">Ch 9: Diff. Eq.</button>
+  <button class="ch-tab" onclick="showCh('ch10',this)">Ch 10: Vectors</button>
+  <button class="ch-tab" onclick="showCh('ch11',this)">Ch 11: 3D Geom.</button>
+  <button class="ch-tab" onclick="showCh('ch12',this)">Ch 12: LPP</button>
+  <button class="ch-tab" onclick="showCh('ch13',this)">Ch 13: Probability</button>
+</div>
 
-        <!-- CH7: INTEGRALS -->
-        <div class="ch-section active" id="ch7">
-            <div class="section-head">âˆ« Chapter 7: Integrals <span class="marks-badge">~8 Marks in Board</span></div>
+<!-- CH1 -->
+<div class="ch-section active" id="ch1">
+  <div class="section-head"> Chapter 1: Relations &amp; Functions <span class="marks-badge">~5 Marks Board</span></div>
+  <div class="example-card" style="--accent:#60a5fa">
+    <div class="ex-header"><span class="ex-num">Example 1</span><span class="ex-marks" style="background:rgba(96,165,250,.15);color:var(--blue)">5 Marks</span><span class="ex-type">Equivalence Relation</span></div>
+    <div class="question-block"><div class="q-label">Question</div><div class="q-text">Show that R = {(a,b) : 2 divides (a-b)} defined on Z is an equivalence relation.</div></div>
+    <button class="solution-toggle" onclick="tog(this)"> Show Solution</button>
+    <div class="solution-body">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Reflexive:</strong> For any aZ, a-a=0=20. So 2|(a-a)  (a,a)R for all a.  R is Reflexive.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Symmetric:</strong> Let (a,b)R  a-b=2k. Then b-a = 2(-k)  2|(b-a)  (b,a)R.  R is Symmetric.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Transitive:</strong> (a,b)R and (b,c)R  a-b=2k, b-c=2k. So a-c = 2(k+k)  (a,c)R.  R is Transitive.</div></div>
+      <div class="answer-box"><div class="answer-label"> Conclusion</div><div class="answer-val">Since R is Reflexive, Symmetric and Transitive  R is an Equivalence Relation. </div></div>
+      <div class="cbse-tip"> <strong>CBSE Tip:</strong> Prove all 3 properties separately. Each = 1 mark. End with "Hence R is an Equivalence Relation". Never skip any step!</div>
+    </div>
+  </div>
+  <div class="example-card" style="--accent:#60a5fa">
+    <div class="ex-header"><span class="ex-num">Example 2</span><span class="ex-marks" style="background:rgba(96,165,250,.15);color:var(--blue)">3 Marks</span><span class="ex-type">One-One &amp; Onto</span></div>
+    <div class="question-block"><div class="q-label">Question</div><div class="q-text">Show that f:RR defined by f(x) = 2x+3 is bijective.</div></div>
+    <button class="solution-toggle" onclick="tog(this)"> Show Solution</button>
+    <div class="solution-body">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><strong>One-One:</strong> Let f(x)=f(x)  2x+3=2x+3  x=x.  f is One-One.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Onto:</strong> For any yR, let x=(y-3)/2  R. Then f(x)=2(y-3)/2+3=y.  f is Onto.</div></div>
+      <div class="answer-box"><div class="answer-label"> Conclusion</div><div class="answer-val">f is One-One and Onto  f is Bijective. </div></div>
+      <div class="cbse-tip"> <strong>CBSE Tip:</strong> One-One: start with f(x)=f(x), conclude x=x. Onto: take arbitrary y in codomain, find x in domain.</div>
+    </div>
+  </div>
+</div>
 
-            <div class="example-card" style="--accent:#60a5fa">
-                <style>
-                    #ch7 .example-card::before {
-                        background: #60a5fa
-                    }
-                </style>
-                <div class="ex-header">
-                    <div class="ex-num">Example 1</div><span class="ex-marks"
-                        style="background:rgba(96,165,250,.12);color:var(--blue)">5 Marks</span><span
-                        class="ex-type">Integration by Parts</span>
-                </div>
-                <div class="question-block">
-                    <div class="q-label">Question</div>
-                    <div class="q-text">Evaluate: $\displaystyle\int x^2 e^x\,dx$</div>
-                </div>
-                <button class="solution-toggle" onclick="toggle(this)">ðŸ‘ï¸ Show Step-by-Step Solution</button>
-                <div class="solution-body">
-                    <div class="step">
-                        <div class="step-num">1</div>
-                        <div class="step-content">Use Integration by Parts (ILATE): $u=x^2$ (Algebraic), $dv=e^x dx$
-                            (Exponential)<div class="formula">$\int u\,dv = uv - \int v\,du$</div>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">2</div>
-                        <div class="step-content">First application: $u=x^2,\,v=e^x,\,du=2x\,dx$<div class="formula">$=
-                                x^2e^x - \int e^x\cdot 2x\,dx = x^2e^x - 2\int xe^x\,dx$</div>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">3</div>
-                        <div class="step-content">Apply by parts again to $\int xe^x\,dx$: $u=x,\,v=e^x$<div
-                                class="formula">$\int xe^x\,dx = xe^x - e^x$</div>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">4</div>
-                        <div class="step-content">Substitute back:<div class="formula">$= x^2e^x - 2(xe^x - e^x) =
-                                x^2e^x - 2xe^x + 2e^x$</div>
-                        </div>
-                    </div>
-                    <div class="answer-box">
-                        <div class="answer-label">âœ… Final Answer</div>
-                        <div class="answer-val">$\boxed{e^x(x^2 - 2x + 2) + C}$</div>
-                    </div>
-                    <div class="cbse-tip">ðŸ”´ <strong>CBSE Tip:</strong> Always write +C at the end of indefinite
-                        integrals. Apply ILATE â€” Algebraic before Exponential. Show every step in By Parts.</div>
-                </div>
-            </div>
+<!-- CH2 -->
+<div class="ch-section" id="ch2">
+  <div class="section-head"> Chapter 2: Inverse Trigonometry <span class="marks-badge">~5 Marks Board</span></div>
+  <div class="example-card" style="--accent:#a78bfa">
+    <div class="ex-header"><span class="ex-num">Example 1</span><span class="ex-marks" style="background:rgba(167,139,250,.15);color:var(--purple)">2 Marks</span><span class="ex-type">Principal Value</span></div>
+    <div class="question-block"><div class="q-label">Question</div><div class="q-text">Find the principal value of $\cos^{-1}\!\left(-\dfrac{\sqrt{3}}{2}\right)$</div></div>
+    <button class="solution-toggle" onclick="tog(this)"> Show Solution</button>
+    <div class="solution-body">
+      <div class="step"><div class="step-num">1</div><div class="step-content">Use identity: $\cos^{-1}(-x) = \pi - \cos^{-1}(x)$<div class="formula">$\cos^{-1}\!\left(-\frac{\sqrt{3}}{2}\right) = \pi - \cos^{-1}\!\left(\frac{\sqrt{3}}{2}\right)$</div></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content">$\cos\frac{\pi}{6}=\frac{\sqrt{3}}{2}$ so $\cos^{-1}\!\left(\frac{\sqrt{3}}{2}\right)=\frac{\pi}{6}$<div class="formula">$= \pi - \frac{\pi}{6} = \frac{5\pi}{6}$</div></div></div>
+      <div class="answer-box"><div class="answer-label"> Final Answer</div><div class="answer-val">$\boxed{\dfrac{5\pi}{6}}$</div></div>
+      <div class="cbse-tip"> <strong>CBSE Tip:</strong> cos(-x) = π - cos(x). NOT = -cos(x)! Most common mistake. sin(-x) = -sin(x) (odd function). cos is NOT odd!</div>
+    </div>
+  </div>
+  <div class="example-card" style="--accent:#a78bfa">
+    <div class="ex-header"><span class="ex-num">Example 2</span><span class="ex-marks" style="background:rgba(167,139,250,.15);color:var(--purple)">3 Marks</span><span class="ex-type">Simplify ITF</span></div>
+    <div class="question-block"><div class="q-label">Question</div><div class="q-text">Prove: $\tan^{-1}\frac{1}{2} + \tan^{-1}\frac{2}{11} = \tan^{-1}\frac{3}{4}$</div></div>
+    <button class="solution-toggle" onclick="tog(this)"> Show Solution</button>
+    <div class="solution-body">
+      <div class="step"><div class="step-num">1</div><div class="step-content">Check: $xy = \frac{1}{2}\times\frac{2}{11}=\frac{1}{11} &lt; 1$  Use direct formula.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><div class="formula">$\tan^{-1}\frac{1}{2}+\tan^{-1}\frac{2}{11} = \tan^{-1}\!\left(\frac{\frac{1}{2}+\frac{2}{11}}{1-\frac{1}{2}\cdot\frac{2}{11}}\right) = \tan^{-1}\!\left(\frac{\frac{15}{22}}{\frac{20}{22}}\right) = \tan^{-1}\frac{15}{20} = \tan^{-1}\frac{3}{4}$</div></div></div>
+      <div class="answer-box"><div class="answer-label"> Hence Proved</div><div class="answer-val">LHS = $\tan^{-1}\dfrac{3}{4}$ = RHS </div></div>
+      <div class="cbse-tip"> <strong>CBSE Tip:</strong> Always verify xy &lt; 1 before applying addition formula. If xy &gt; 1, add π. Write "LHS = ... = RHS, Hence Proved".</div>
+    </div>
+  </div>
+</div>
 
-            <div class="example-card">
-                <div class="ex-header">
-                    <div class="ex-num">Example 2</div><span class="ex-marks"
-                        style="background:rgba(96,165,250,.12);color:var(--blue)">5 Marks</span><span
-                        class="ex-type">Definite Integral Property</span>
-                </div>
-                <div class="question-block">
-                    <div class="q-label">Question</div>
-                    <div class="q-text">Evaluate: $\displaystyle\int_0^{\pi/2}\frac{\sin x}{\sin x + \cos x}\,dx$</div>
-                </div>
-                <button class="solution-toggle" onclick="toggle(this)">ðŸ‘ï¸ Show Step-by-Step Solution</button>
-                <div class="solution-body">
-                    <div class="step">
-                        <div class="step-num">1</div>
-                        <div class="step-content">Let $I = \int_0^{\pi/2}\frac{\sin x}{\sin x + \cos x}\,dx$
-                            &nbsp;...(i)</div>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">2</div>
-                        <div class="step-content">Apply property $\int_0^a f(x)dx = \int_0^a f(a-x)dx$ with $a=\pi/2$:
-                            <div class="formula">$I =
-                                \int_0^{\pi/2}\frac{\sin(\pi/2-x)}{\sin(\pi/2-x)+\cos(\pi/2-x)}\,dx =
-                                \int_0^{\pi/2}\frac{\cos x}{\cos x + \sin x}\,dx$ ...(ii)</div>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">3</div>
-                        <div class="step-content">Add (i) and (ii):<div class="formula">$2I = \int_0^{\pi/2}\frac{\sin x
-                                + \cos x}{\sin x + \cos x}\,dx = \int_0^{\pi/2}1\,dx = \frac{\pi}{2}$</div>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">4</div>
-                        <div class="step-content">Divide both sides by 2:</div>
-                    </div>
-                    <div class="answer-box">
-                        <div class="answer-label">âœ… Final Answer</div>
-                        <div class="answer-val">$\boxed{I = \dfrac{\pi}{4}}$</div>
-                    </div>
-                    <div class="cbse-tip">ðŸ”´ <strong>CBSE Tip:</strong> This "King Property" trick always works â€” form
-                        I, apply property to get I again, add and divide. This type comes EVERY year!</div>
-                </div>
-            </div>
-        </div>
+<!-- CH3 -->
+<div class="ch-section" id="ch3">
+  <div class="section-head"> Chapter 3: Matrices <span class="marks-badge">~5 Marks Board</span></div>
+  <div class="example-card" style="--accent:#34d399">
+    <div class="ex-header"><span class="ex-num">Example 1</span><span class="ex-marks" style="background:rgba(52,211,153,.15);color:var(--green)">3 Marks</span><span class="ex-type">Sym + Skew Decomposition</span></div>
+    <div class="question-block"><div class="q-label">Question</div><div class="q-text">Express $A=\begin{pmatrix}3&amp;5\\1&amp;-1\end{pmatrix}$ as sum of a Symmetric and a Skew-Symmetric matrix.</div></div>
+    <button class="solution-toggle" onclick="tog(this)"> Show Solution</button>
+    <div class="solution-body">
+      <div class="step"><div class="step-num">1</div><div class="step-content">Find $A^T = \begin{pmatrix}3&amp;1\\5&amp;-1\end{pmatrix}$<br>Formula: $A = \underbrace{\frac{A+A^T}{2}}_{P} + \underbrace{\frac{A-A^T}{2}}_{Q}$</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content">Symmetric $P = \frac{A+A^T}{2} = \frac{1}{2}\begin{pmatrix}6&amp;6\\6&amp;-2\end{pmatrix} = \begin{pmatrix}3&amp;3\\3&amp;-1\end{pmatrix}$. Verify: $P^T=P$ </div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content">Skew-Sym $Q = \frac{A-A^T}{2} = \frac{1}{2}\begin{pmatrix}0&amp;4\\-4&amp;0\end{pmatrix} = \begin{pmatrix}0&amp;2\\-2&amp;0\end{pmatrix}$. Verify: $Q^T=-Q$ </div></div>
+      <div class="answer-box"><div class="answer-label"> Final Answer</div><div class="answer-val">$A = \begin{pmatrix}3&amp;3\\3&amp;-1\end{pmatrix} + \begin{pmatrix}0&amp;2\\-2&amp;0\end{pmatrix}$</div></div>
+      <div class="cbse-tip"> <strong>CBSE Tip:</strong> Verify P=Pᵀ and Q=-Qᵀ explicitly. Diagonal of skew-symmetric matrix is ALWAYS zero. This is a common 3-mark question!</div>
+    </div>
+  </div>
+</div>
 
-        <!-- CH13: PROBABILITY -->
-        <div class="ch-section" id="ch13">
-            <div class="section-head">ðŸŽ² Chapter 13: Probability <span class="marks-badge">~8 Marks in Board</span>
-            </div>
+<!-- CH4 -->
+<div class="ch-section" id="ch4">
+  <div class="section-head"> Chapter 4: Determinants <span class="marks-badge">~8 Marks Board</span></div>
+  <div class="example-card" style="--accent:#f59e0b">
+    <div class="ex-header"><span class="ex-num">Example 1</span><span class="ex-marks" style="background:rgba(245,158,11,.15);color:var(--gold)">5 Marks</span><span class="ex-type">Solve System via Matrix</span></div>
+    <div class="question-block"><div class="q-label">Question</div><div class="q-text">Solve using matrices: x+y+z=6, 2y+5z=4, 2x+5yz=27</div></div>
+    <button class="solution-toggle" onclick="tog(this)"> Show Solution</button>
+    <div class="solution-body">
+      <div class="step"><div class="step-num">1</div><div class="step-content">Write AX=B: $A=\begin{pmatrix}1&amp;1&amp;1\\0&amp;2&amp;5\\2&amp;5&amp;-1\end{pmatrix}$, $X=\begin{pmatrix}x\\y\\z\end{pmatrix}$, $B=\begin{pmatrix}6\\-4\\27\end{pmatrix}$</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content">Find $|A| = 1(2\cdot(-1)-5\cdot5)-1(0-10)+1(0-4) = (-27)+10-4 = -21 \neq 0$ </div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content">Find adj(A) by computing all 9 cofactors with signs $(-1)^{i+j}$, then $A^{-1}=\frac{1}{|A|}$adj(A). Then $X=A^{-1}B$.</div></div>
+      <div class="answer-box"><div class="answer-label"> Final Answer</div><div class="answer-val">x = 1, y = 2, z = 3</div></div>
+      <div class="cbse-tip"> <strong>CBSE Tip:</strong> Always check |A|0 first. Cofactor sign = (-1)^(i+j). Show each cofactor calculation  each cofactor carries marks!</div>
+    </div>
+  </div>
+</div>
 
-            <div class="example-card">
-                <style>
-                    #ch13 .example-card::before {
-                        background: #34d399
-                    }
-                </style>
-                <div class="ex-header">
-                    <div class="ex-num">Example 1</div><span class="ex-marks"
-                        style="background:rgba(52,211,153,.12);color:var(--green)">5 Marks</span><span
-                        class="ex-type">Bayes' Theorem</span>
-                </div>
-                <div class="question-block">
-                    <div class="q-label">Question</div>
-                    <div class="q-text">A bag I contains 4 red and 4 black balls. Bag II contains 2 red and 6 black
-                        balls. One bag is chosen at random and a ball is drawn. Given the ball is red, find the
-                        probability it came from Bag I.</div>
-                </div>
-                <button class="solution-toggle" onclick="toggle(this)">ðŸ‘ï¸ Show Step-by-Step Solution</button>
-                <div class="solution-body">
-                    <div class="step">
-                        <div class="step-num">1</div>
-                        <div class="step-content">Define events: $E_1$ = Bag I selected, $E_2$ = Bag II selected, $A$ =
-                            Red ball drawn.<div class="formula">$P(E_1) = \frac{1}{2},\quad P(E_2) = \frac{1}{2}$</div>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">2</div>
-                        <div class="step-content">Conditional probabilities:<div class="formula">
-                                $P(A|E_1)=\frac{4}{8}=\frac{1}{2},\qquad P(A|E_2)=\frac{2}{8}=\frac{1}{4}$</div>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">3</div>
-                        <div class="step-content">Total probability P(A):<div class="formula">$P(A)=P(E_1)\cdot
-                                P(A|E_1)+P(E_2)\cdot
-                                P(A|E_2)=\frac{1}{2}\cdot\frac{1}{2}+\frac{1}{2}\cdot\frac{1}{4}=\frac{1}{4}+\frac{1}{8}=\frac{3}{8}$
-                            </div>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">4</div>
-                        <div class="step-content">Apply Bayes' Theorem:<div class="formula">$P(E_1|A)=\frac{P(E_1)\cdot
-                                P(A|E_1)}{P(A)}=\frac{\frac{1}{2}\cdot\frac{1}{2}}{\frac{3}{8}}=\frac{\frac{1}{4}}{\frac{3}{8}}=\frac{1}{4}\times\frac{8}{3}=\frac{2}{3}$
-                            </div>
-                        </div>
-                    </div>
-                    <div class="answer-box">
-                        <div class="answer-label">âœ… Final Answer</div>
-                        <div class="answer-val">$\boxed{P(E_1|A) = \dfrac{2}{3}}$</div>
-                    </div>
-                    <div class="cbse-tip">ðŸ”´ <strong>CBSE Tip:</strong> ALWAYS: (1) Define all events clearly, (2) Write
-                        P(Eáµ¢) values, (3) Write P(A|Eáµ¢) values, (4) Compute P(A) using Total Probability, THEN apply
-                        Bayes'. Show all 4 steps for full marks!</div>
-                </div>
-            </div>
-        </div>
+<!-- CH5 -->
+<div class="ch-section" id="ch5">
+  <div class="section-head"> Chapter 5: Continuity &amp; Differentiability <span class="marks-badge">~8 Marks Board</span></div>
+  <div class="example-card" style="--accent:#f472b6">
+    <div class="ex-header"><span class="ex-num">Example 1</span><span class="ex-marks" style="background:rgba(244,114,182,.15);color:var(--pink)">3 Marks</span><span class="ex-type">Find k for Continuity</span></div>
+    <div class="question-block"><div class="q-label">Question</div><div class="q-text">Find k so that $f(x)=\begin{cases}kx+1,&amp; x\leq5\\ 3x-5,&amp; x&gt;5\end{cases}$ is continuous at x=5.</div></div>
+    <button class="solution-toggle" onclick="tog(this)"> Show Solution</button>
+    <div class="solution-body">
+      <div class="step"><div class="step-num">1</div><div class="step-content">For continuity at x=5: LHL = RHL = f(5)</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content">LHL: $\lim_{x\to5^-}(kx+1) = 5k+1$</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content">RHL: $\lim_{x\to5^+}(3x-5) = 15-5 = 10$</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content">f(5)=5k+1. Equating LHL=RHL: $5k+1=10 \Rightarrow k=\frac{9}{5}$</div></div>
+      <div class="answer-box"><div class="answer-label"> Final Answer</div><div class="answer-val">$k = \dfrac{9}{5}$</div></div>
+      <div class="cbse-tip"> <strong>CBSE Tip:</strong> Write "For continuity, LHL=RHL=f(c)" before solving  this line alone gives 1 mark. Show LHL, RHL, f(c) in separate steps!</div>
+    </div>
+  </div>
+</div>
 
-        <!-- CH5: CONTINUITY -->
-        <div class="ch-section" id="ch5">
-            <div class="section-head">ðŸ“‰ Chapter 5: Continuity & Differentiability <span class="marks-badge">~8 Marks in
-                    Board</span></div>
+<!-- CH6 -->
+<div class="ch-section" id="ch6">
+  <div class="section-head"> Chapter 6: Application of Derivatives <span class="marks-badge">~7 Marks Board</span></div>
+  <div class="example-card" style="--accent:#fb7185">
+    <div class="ex-header"><span class="ex-num">Example 1</span><span class="ex-marks" style="background:rgba(251,113,133,.15);color:var(--red)">5 Marks</span><span class="ex-type">Optimization</span></div>
+    <div class="question-block"><div class="q-label">Question</div><div class="q-text">Find dimensions of rectangle of maximum area inscribed in a circle of radius r.</div></div>
+    <button class="solution-toggle" onclick="tog(this)"> Show Solution</button>
+    <div class="solution-body">
+      <div class="step"><div class="step-num">1</div><div class="step-content">Let sides = 2x, 2y. Diagonal = 2r so $x^2+y^2=r^2 \Rightarrow y=\sqrt{r^2-x^2}$</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content">Area A = 4xy. Maximize $S=A^2=16x^2(r^2-x^2)$</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><div class="formula">$\frac{dS}{dx}=16(2xr^2-4x^3)=0 \Rightarrow x^2=\frac{r^2}{2} \Rightarrow x=\frac{r}{\sqrt{2}}$</div></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content">$y=\frac{r}{\sqrt{2}}$. Verify: $\frac{d^2S}{dx^2}&lt;0$  (Maximum)</div></div>
+      <div class="answer-box"><div class="answer-label"> Final Answer</div><div class="answer-val">Dimensions: $r\sqrt{2} \times r\sqrt{2}$ (a square gives max area!)</div></div>
+      <div class="cbse-tip"> <strong>CBSE Tip:</strong> Always verify max/min using 2nd derivative test. Write conclusion: "Maximum area = __ sq units at x = __". State units!</div>
+    </div>
+  </div>
+</div>
 
-            <div class="example-card">
-                <style>
-                    #ch5 .example-card::before {
-                        background: #f472b6
-                    }
-                </style>
-                <div class="ex-header">
-                    <div class="ex-num">Example 1</div><span class="ex-marks"
-                        style="background:rgba(244,114,182,.12);color:var(--pink)">3 Marks</span><span
-                        class="ex-type">Continuity at a Point</span>
-                </div>
-                <div class="question-block">
-                    <div class="q-label">Question</div>
-                    <div class="q-text">Find the value of $k$ so that $f(x)=\begin{cases}kx+1, & x\leq 5\\ 3x-5, &
-                        x>5\end{cases}$ is continuous at $x=5$.</div>
-                </div>
-                <button class="solution-toggle" onclick="toggle(this)">ðŸ‘ï¸ Show Step-by-Step Solution</button>
-                <div class="solution-body">
-                    <div class="step">
-                        <div class="step-num">1</div>
-                        <div class="step-content">For continuity at $x=5$: LHL = RHL = f(5)</div>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">2</div>
-                        <div class="step-content">LHL: $\displaystyle\lim_{x\to 5^-}f(x) = \lim_{x\to 5^-}(kx+1) = 5k+1$
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">3</div>
-                        <div class="step-content">RHL: $\displaystyle\lim_{x\to 5^+}f(x) = \lim_{x\to 5^+}(3x-5) = 15-5
-                            = 10$</div>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">4</div>
-                        <div class="step-content">$f(5) = k(5)+1 = 5k+1$. For continuity: LHL = RHL<div class="formula">
-                                $5k+1 = 10 \implies 5k = 9 \implies k = \dfrac{9}{5}$</div>
-                        </div>
-                    </div>
-                    <div class="answer-box">
-                        <div class="answer-label">âœ… Final Answer</div>
-                        <div class="answer-val">$\boxed{k = \dfrac{9}{5}}$</div>
-                    </div>
-                    <div class="cbse-tip">ðŸ”´ <strong>CBSE Tip:</strong> Write "For continuity, LHL = RHL = f(c)" before
-                        solving. This line itself gets you 1 mark. Show LHL, RHL, f(c) separately â€” never combine steps!
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- CH7 -->
+<div class="ch-section" id="ch7">
+  <div class="section-head"> Chapter 7: Integrals <span class="marks-badge">~8 Marks Board</span></div>
+  <div class="example-card" style="--accent:#60a5fa">
+    <div class="ex-header"><span class="ex-num">Example 1</span><span class="ex-marks" style="background:rgba(96,165,250,.15);color:var(--blue)">5 Marks</span><span class="ex-type">Integration by Parts</span></div>
+    <div class="question-block"><div class="q-label">Question</div><div class="q-text">Evaluate: $\int x^2 e^x\,dx$</div></div>
+    <button class="solution-toggle" onclick="tog(this)"> Show Solution</button>
+    <div class="solution-body">
+      <div class="step"><div class="step-num">1</div><div class="step-content">ILATE: u=x (Algebraic), dv=eˣdx<div class="formula">$\int u\,dv = uv - \int v\,du$</div></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><div class="formula">$= x^2e^x - \int e^x\cdot2x\,dx = x^2e^x - 2\int xe^x\,dx$</div></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content">Apply by parts again: $\int xe^x dx = xe^x - e^x$</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><div class="formula">$= x^2e^x - 2(xe^x-e^x) = e^x(x^2-2x+2)$</div></div></div>
+      <div class="answer-box"><div class="answer-label"> Final Answer</div><div class="answer-val">$\boxed{e^x(x^2-2x+2)+C}$</div></div>
+      <div class="cbse-tip"> <strong>CBSE Tip:</strong> Always write +C! Apply ILATE (Algebraic before Exponential). Show every step of By Parts explicitly.</div>
+    </div>
+  </div>
+  <div class="example-card" style="--accent:#60a5fa">
+    <div class="ex-header"><span class="ex-num">Example 2</span><span class="ex-marks" style="background:rgba(96,165,250,.15);color:var(--blue)">5 Marks</span><span class="ex-type">Definite Integral Property</span></div>
+    <div class="question-block"><div class="q-label">Question</div><div class="q-text">Evaluate: $\int_0^{\pi/2}\dfrac{\sin x}{\sin x+\cos x}\,dx$</div></div>
+    <button class="solution-toggle" onclick="tog(this)"> Show Solution</button>
+    <div class="solution-body">
+      <div class="step"><div class="step-num">1</div><div class="step-content">Let $I=\int_0^{\pi/2}\frac{\sin x}{\sin x+\cos x}dx$ ...(i)</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content">Apply $\int_0^a f(x)dx=\int_0^a f(a-x)dx$:<div class="formula">$I=\int_0^{\pi/2}\frac{\cos x}{\cos x+\sin x}dx$ ...(ii)</div></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content">Add (i)+(ii): $2I=\int_0^{\pi/2}1\,dx=\frac{\pi}{2}$</div></div>
+      <div class="answer-box"><div class="answer-label"> Final Answer</div><div class="answer-val">$\boxed{I = \dfrac{\pi}{4}}$</div></div>
+      <div class="cbse-tip"> <strong>CBSE Tip:</strong> "King Property"  comes EVERY year! Form I, apply property, add both I's, divide. This exact method must be shown.</div>
+    </div>
+  </div>
+</div>
 
-        <!-- CH6: AOD -->
-        <div class="ch-section" id="ch6">
-            <div class="section-head">ðŸ“ˆ Chapter 6: Application of Derivatives <span class="marks-badge">~7 Marks in
-                    Board</span></div>
+<!-- CH8 -->
+<div class="ch-section" id="ch8">
+  <div class="section-head"> Chapter 8: Application of Integrals <span class="marks-badge">~5 Marks Board</span></div>
+  <div class="example-card" style="--accent:#34d399">
+    <div class="ex-header"><span class="ex-num">Example 1</span><span class="ex-marks" style="background:rgba(52,211,153,.15);color:var(--green)">5 Marks</span><span class="ex-type">Area Bounded by Curves</span></div>
+    <div class="question-block"><div class="q-label">Question</div><div class="q-text">Find the area bounded by the parabola $y^2=4x$ and the line $x=3$.</div></div>
+    <button class="solution-toggle" onclick="tog(this)"> Show Solution</button>
+    <div class="solution-body">
+      <div class="step"><div class="step-num">1</div><div class="step-content">Sketch: parabola $y^2=4x$ opens rightward, symmetric about x-axis. Line x=3 is vertical.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content">By symmetry, Total Area = 2  Area above x-axis.<div class="formula">$A = 2\int_0^3\sqrt{4x}\,dx = 4\int_0^3 x^{1/2}\,dx$</div></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><div class="formula">$= 4\left[\frac{x^{3/2}}{3/2}\right]_0^3 = \frac{8}{3}\cdot3\sqrt{3} = 8\sqrt{3}$</div></div></div>
+      <div class="answer-box"><div class="answer-label"> Final Answer</div><div class="answer-val">$A = 8\sqrt{3}$ sq. units</div></div>
+      <div class="cbse-tip"> <strong>CBSE Tip:</strong> Draw a rough sketch! Always write "sq. units"  compulsory for full marks. Use symmetry when possible to simplify limits.</div>
+    </div>
+  </div>
+</div>
 
-            <div class="example-card">
-                <style>
-                    #ch6 .example-card::before {
-                        background: #fb7185
-                    }
-                </style>
-                <div class="ex-header">
-                    <div class="ex-num">Example 1</div><span class="ex-marks"
-                        style="background:rgba(251,113,133,.12);color:var(--red)">5 Marks</span><span
-                        class="ex-type">Optimization Problem</span>
-                </div>
-                <div class="question-block">
-                    <div class="q-label">Question</div>
-                    <div class="q-text">A rectangle is inscribed in a circle of radius $r$. Find the dimensions of the
-                        rectangle of maximum area.</div>
-                </div>
-                <button class="solution-toggle" onclick="toggle(this)">ðŸ‘ï¸ Show Step-by-Step Solution</button>
-                <div class="solution-body">
-                    <div class="step">
-                        <div class="step-num">1</div>
-                        <div class="step-content">Let the sides be $2x$ and $2y$. Since it's inscribed in circle of
-                            radius $r$:<div class="formula">$x^2 + y^2 = r^2 \implies y = \sqrt{r^2-x^2}$</div>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">2</div>
-                        <div class="step-content">Area to maximize: $A = 4xy = 4x\sqrt{r^2-x^2}$</div>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">3</div>
-                        <div class="step-content">Let $S = A^2 = 16x^2(r^2-x^2)$ (maximize S to maximize A).<div
-                                class="formula">$\frac{dS}{dx} = 16(2xr^2 - 4x^3) = 0 \implies x^2 = \frac{r^2}{2}
-                                \implies x = \frac{r}{\sqrt{2}}$</div>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">4</div>
-                        <div class="step-content">Then $y = \sqrt{r^2-r^2/2} = \frac{r}{\sqrt{2}}$. Verify maximum:
-                            $\frac{d^2S}{dx^2} < 0$ âœ“</div>
-                        </div>
-                        <div class="answer-box">
-                            <div class="answer-label">âœ… Final Answer</div>
-                            <div class="answer-val">Dimensions: $\dfrac{2r}{\sqrt{2}} \times \dfrac{2r}{\sqrt{2}}$ =
-                                $r\sqrt{2} \times r\sqrt{2}$ (a square!)</div>
-                        </div>
-                        <div class="cbse-tip">ðŸ”´ <strong>CBSE Tip:</strong> Always verify max/min using 2nd derivative
-                            test or 1st derivative test. Write "Maximum area" or "Minimum cost" in the conclusion. State
-                            units if given.</div>
-                    </div>
-                </div>
-            </div>
+<!-- CH9 -->
+<div class="ch-section" id="ch9">
+  <div class="section-head"> Chapter 9: Differential Equations <span class="marks-badge">~6 Marks Board</span></div>
+  <div class="example-card" style="--accent:#a78bfa">
+    <div class="ex-header"><span class="ex-num">Example 1</span><span class="ex-marks" style="background:rgba(167,139,250,.15);color:var(--purple)">5 Marks</span><span class="ex-type">Linear DE (I.F. Method)</span></div>
+    <div class="question-block"><div class="q-label">Question</div><div class="q-text">Solve: $\dfrac{dy}{dx} + \dfrac{y}{x} = x^2$</div></div>
+    <button class="solution-toggle" onclick="tog(this)"> Show Solution</button>
+    <div class="solution-body">
+      <div class="step"><div class="step-num">1</div><div class="step-content">Form: $\frac{dy}{dx}+Py=Q$ where $P=\frac{1}{x}$, $Q=x^2$</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content">I.F. $= e^{\int P\,dx}=e^{\int\frac{dx}{x}}=e^{\ln x}=x$</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content">Multiply both sides by I.F.=x: $\frac{d}{dx}(xy)=x^3$</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content">Integrate: $xy=\int x^3dx=\frac{x^4}{4}+C$</div></div>
+      <div class="answer-box"><div class="answer-label"> General Solution</div><div class="answer-val">$xy = \dfrac{x^4}{4} + C$</div></div>
+      <div class="cbse-tip"> <strong>CBSE Tip:</strong> Steps (mandatory): (1) Identify P,Q (2) Find I.F. (3) Multiply (4) Integrate RHS. ALWAYS write +C. Formula: yIF = QIF dx + C</div>
+    </div>
+  </div>
+</div>
 
-            <!-- CH8: AOI -->
-            <div class="ch-section" id="ch8">
-                <div class="section-head">ðŸ“ Chapter 8: Application of Integrals <span class="marks-badge">~5 Marks in
-                        Board</span></div>
-                <div class="example-card">
-                    <style>
-                        #ch8 .example-card::before {
-                            background: #34d399
-                        }
-                    </style>
-                    <div class="ex-header">
-                        <div class="ex-num">Example 1</div><span class="ex-marks"
-                            style="background:rgba(52,211,153,.12);color:var(--green)">5 Marks</span><span
-                            class="ex-type">Area Between Curves</span>
-                    </div>
-                    <div class="question-block">
-                        <div class="q-label">Question</div>
-                        <div class="q-text">Find the area of the region bounded by the parabola $y^2 = 4x$ and the line
-                            $x = 3$.</div>
-                    </div>
-                    <button class="solution-toggle" onclick="toggle(this)">ðŸ‘ï¸ Show Step-by-Step Solution</button>
-                    <div class="solution-body">
-                        <div class="step">
-                            <div class="step-num">1</div>
-                            <div class="step-content">Sketch: parabola $y^2=4x$ opens right, line $x=3$ is vertical.
-                                Region is symmetric about x-axis.</div>
-                        </div>
-                        <div class="step">
-                            <div class="step-num">2</div>
-                            <div class="step-content">Area $= 2\times$ Area above x-axis (by symmetry).<div
-                                    class="formula">$A = 2\int_0^3 y\,dx = 2\int_0^3\sqrt{4x}\,dx = 2\int_0^3
-                                    2\sqrt{x}\,dx = 4\int_0^3 x^{1/2}\,dx$</div>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-num">3</div>
-                            <div class="step-content">Integrate:<div class="formula">$=
-                                    4\left[\frac{x^{3/2}}{3/2}\right]_0^3 = 4\cdot\frac{2}{3}\left[x^{3/2}\right]_0^3 =
-                                    \frac{8}{3}\left[3^{3/2}-0\right] = \frac{8}{3}\cdot 3\sqrt{3}$</div>
-                            </div>
-                        </div>
-                        <div class="answer-box">
-                            <div class="answer-label">âœ… Final Answer</div>
-                            <div class="answer-val">$\boxed{A = 8\sqrt{3} \text{ sq. units}}$</div>
-                        </div>
-                        <div class="cbse-tip">ðŸ”´ <strong>CBSE Tip:</strong> Always draw a rough sketch! Use symmetry to
-                            simplify. Write unit "sq. units" in the final answer â€” it's compulsory for full marks!</div>
-                    </div>
-                </div>
-            </div>
+<!-- CH10 -->
+<div class="ch-section" id="ch10">
+  <div class="section-head"> Chapter 10: Vector Algebra <span class="marks-badge">~6 Marks Board</span></div>
+  <div class="example-card" style="--accent:#f59e0b">
+    <div class="ex-header"><span class="ex-num">Example 1</span><span class="ex-marks" style="background:rgba(245,158,11,.15);color:var(--gold)">4 Marks</span><span class="ex-type">Dot Product &amp; Angle</span></div>
+    <div class="question-block"><div class="q-label">Question</div><div class="q-text">If $\vec{a}=\hat{i}+2\hat{j}-3\hat{k}$ and $\vec{b}=3\hat{i}-\hat{j}+2\hat{k}$, find $\vec{a}\cdot\vec{b}$ and angle between them.</div></div>
+    <button class="solution-toggle" onclick="tog(this)"> Show Solution</button>
+    <div class="solution-body">
+      <div class="step"><div class="step-num">1</div><div class="step-content">$\vec{a}\cdot\vec{b}=(1)(3)+(2)(-1)+(-3)(2)=3-2-6=-5$</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content">$|\vec{a}|=\sqrt{1+4+9}=\sqrt{14}$, $|\vec{b}|=\sqrt{9+1+4}=\sqrt{14}$</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><div class="formula">$\cos\theta=\frac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}=\frac{-5}{\sqrt{14}\cdot\sqrt{14}}=\frac{-5}{14}$</div>$\theta=\cos^{-1}\!\left(\frac{-5}{14}\right)$</div></div>
+      <div class="answer-box"><div class="answer-label"> Final Answer</div><div class="answer-val">$\vec{a}\cdot\vec{b}=-5$, $\quad\theta=\cos^{-1}\!\left(\dfrac{-5}{14}\right)$</div></div>
+      <div class="cbse-tip"> <strong>CBSE Tip:</strong>   dot=0.   cross=0. Compute magnitudes separately. Area of triangle = |ab|. Always show formula then substitution.</div>
+    </div>
+  </div>
+</div>
 
-            <!-- CH4: DETERMINANTS -->
-            <div class="ch-section" id="ch4">
-                <div class="section-head">ðŸ“Š Chapter 4: Determinants <span class="marks-badge">~8 Marks in Board</span>
-                </div>
-                <div class="example-card">
-                    <style>
-                        #ch4 .example-card::before {
-                            background: #f59e0b
-                        }
-                    </style>
-                    <div class="ex-header">
-                        <div class="ex-num">Example 1</div><span class="ex-marks"
-                            style="background:rgba(245,158,11,.12);color:var(--gold)">5 Marks</span><span
-                            class="ex-type">System of Equations</span>
-                    </div>
-                    <div class="question-block">
-                        <div class="q-label">Question</div>
-                        <div class="q-text">Solve using matrices: $x+y+z=6$, $2y+5z=âˆ’4$, $2x+5yâˆ’z=27$</div>
-                    </div>
-                    <button class="solution-toggle" onclick="toggle(this)">ðŸ‘ï¸ Show Step-by-Step Solution</button>
-                    <div class="solution-body">
-                        <div class="step">
-                            <div class="step-num">1</div>
-                            <div class="step-content">Write as $AX=B$:<div class="formula">
-                                    $A=\begin{pmatrix}1&1&1\\0&2&5\\2&5&-1\end{pmatrix},\quad
-                                    X=\begin{pmatrix}x\\y\\z\end{pmatrix},\quad B=\begin{pmatrix}6\\-4\\27\end{pmatrix}$
-                                </div>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-num">2</div>
-                            <div class="step-content">Find $|A| = 1(2(-1)-5\cdot5) - 1(0(-1)-5\cdot2) +
-                                1(0\cdot5-2\cdot2)$<div class="formula">$= 1(-2-25) - 1(0-10) + 1(0-4) = -27+10-4 = -21
-                                    \neq 0$ âœ“</div>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-num">3</div>
-                            <div class="step-content">Find $A^{-1} = \frac{1}{|A|}\text{adj}(A)$. Compute cofactors...
-                                (show in exam). Then $X = A^{-1}B$</div>
-                        </div>
-                        <div class="answer-box">
-                            <div class="answer-label">âœ… Final Answer</div>
-                            <div class="answer-val">$x = 1,\quad y = 2,\quad z = 3$</div>
-                        </div>
-                        <div class="cbse-tip">ðŸ”´ <strong>CBSE Tip:</strong> Always verify |A|â‰ 0 before proceeding. Write
-                            cofactors with correct signs: (-1)^(i+j). Show all cofactor calculations step by step â€” each
-                            cofactor = 0.5 marks.</div>
-                    </div>
-                </div>
-            </div>
+<!-- CH11 -->
+<div class="ch-section" id="ch11">
+  <div class="section-head"> Chapter 11: 3D Geometry <span class="marks-badge">~7 Marks Board</span></div>
+  <div class="example-card" style="--accent:#f472b6">
+    <div class="ex-header"><span class="ex-num">Example 1</span><span class="ex-marks" style="background:rgba(244,114,182,.15);color:var(--pink)">3 Marks</span><span class="ex-type">Distance: Point to Plane</span></div>
+    <div class="question-block"><div class="q-label">Question</div><div class="q-text">Find the distance from P(2,3,1) to the plane 3x4y+12z+13=0.</div></div>
+    <button class="solution-toggle" onclick="tog(this)"> Show Solution</button>
+    <div class="solution-body">
+      <div class="step"><div class="step-num">1</div><div class="step-content">Formula: $d=\dfrac{|ax_1+by_1+cz_1+d|}{\sqrt{a^2+b^2+c^2}}$</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content">Numerator: $|3(2)+(-4)(3)+12(-1)+13|=|6-12-12+13|=|-5|=5$</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content">Denominator: $\sqrt{9+16+144}=\sqrt{169}=13$</div></div>
+      <div class="answer-box"><div class="answer-label"> Final Answer</div><div class="answer-val">$d = \dfrac{5}{13}$ units</div></div>
+      <div class="cbse-tip"> <strong>CBSE Tip:</strong> Distance is NEVER negative  always use |absolute value|. Write "units" at the end. Memorize this formula perfectly!</div>
+    </div>
+  </div>
+</div>
 
-            <!-- CH12: LPP -->
-            <div class="ch-section" id="ch12">
-                <div class="section-head">ðŸ“Š Chapter 12: Linear Programming <span class="marks-badge">~5 Marks in
-                        Board</span></div>
-                <div class="example-card">
-                    <style>
-                        #ch12 .example-card::before {
-                            background: #fb7185
-                        }
-                    </style>
-                    <div class="ex-header">
-                        <div class="ex-num">Example 1</div><span class="ex-marks"
-                            style="background:rgba(251,113,133,.12);color:var(--red)">5 Marks</span><span
-                            class="ex-type">Maximize Objective Function</span>
-                    </div>
-                    <div class="question-block">
-                        <div class="q-label">Question</div>
-                        <div class="q-text">Maximize $Z = 5x + 3y$ subject to: $3x+5y\leq15$, $5x+2y\leq10$, $x\geq0$,
-                            $y\geq0$.</div>
-                    </div>
-                    <button class="solution-toggle" onclick="toggle(this)">ðŸ‘ï¸ Show Step-by-Step Solution</button>
-                    <div class="solution-body">
-                        <div class="step">
-                            <div class="step-num">1</div>
-                            <div class="step-content">Convert equations to intercept form and plot:</div>
-                        </div>
-                        <div class="step">
-                            <div class="step-num">2</div>
-                            <div class="step-content">Find corner points: at $x=0$: $(0,0),(0,3)$. At $y=0$: $(2,0)$.
-                                Intersection of $3x+5y=15$ and $5x+2y=10$:<div class="formula">$\text{Solving: }
-                                    x=\frac{20}{19},\quad y=\frac{45}{19}$</div>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-num">3</div>
-                            <div class="step-content">Evaluate Z at all corner points:
-                                <table style="width:100%;border-collapse:collapse;margin-top:.5rem;font-size:.82rem;">
-                                    <tr style="background:rgba(255,255,255,.06)">
-                                        <th style="padding:.4rem;text-align:left">Corner Point</th>
-                                        <th style="padding:.4rem">Z = 5x+3y</th>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding:.4rem">(0,0)</td>
-                                        <td style="padding:.4rem;text-align:center">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding:.4rem">(2,0)</td>
-                                        <td style="padding:.4rem;text-align:center">10</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding:.4rem;color:var(--gold)">(20/19, 45/19)</td>
-                                        <td style="padding:.4rem;text-align:center;color:var(--gold)"><strong>235/19 â‰ˆ
-                                                12.37 â† MAX</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding:.4rem">(0,3)</td>
-                                        <td style="padding:.4rem;text-align:center">9</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="answer-box">
-                            <div class="answer-label">âœ… Final Answer</div>
-                            <div class="answer-val">Maximum $Z = \dfrac{235}{19}$ at
-                                $\left(\dfrac{20}{19},\dfrac{45}{19}\right)$</div>
-                        </div>
-                        <div class="cbse-tip">ðŸ”´ <strong>CBSE Tip:</strong> ALWAYS make a corner-point table â€” it's
-                            compulsory for full marks. Shade the feasible region. State "Maximum value of Z is __ at __"
-                            in conclusion.</div>
-                    </div>
-                </div>
-            </div>
+<!-- CH12 -->
+<div class="ch-section" id="ch12">
+  <div class="section-head"> Chapter 12: Linear Programming <span class="marks-badge">~5 Marks Board</span></div>
+  <div class="example-card" style="--accent:#fb7185">
+    <div class="ex-header"><span class="ex-num">Example 1</span><span class="ex-marks" style="background:rgba(251,113,133,.15);color:var(--red)">5 Marks</span><span class="ex-type">Maximize Z</span></div>
+    <div class="question-block"><div class="q-label">Question</div><div class="q-text">Maximize Z=5x+3y subject to: 3x+5y15, 5x+2y10, x0, y0.</div></div>
+    <button class="solution-toggle" onclick="tog(this)"> Show Solution</button>
+    <div class="solution-body">
+      <div class="step"><div class="step-num">1</div><div class="step-content">Plot constraints and shade feasible region. Find all corner points.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content">Corner points: (0,0), (2,0), (0,3). Intersection of 3x+5y=15 &amp; 5x+2y=10:<div class="formula">Solving: x=20/19, y=45/19</div></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content">Evaluate Z at all corners:
+        <table style="width:100%;margin-top:.5rem;font-size:.8rem;border-collapse:collapse">
+          <tr style="background:rgba(255,255,255,.06)"><th style="padding:.3rem">Point</th><th>Z=5x+3y</th></tr>
+          <tr><td style="padding:.3rem;text-align:center">(0,0)</td><td style="text-align:center">0</td></tr>
+          <tr><td style="padding:.3rem;text-align:center">(2,0)</td><td style="text-align:center">10</td></tr>
+          <tr><td style="padding:.3rem;text-align:center;color:var(--gold)">(20/19, 45/19)</td><td style="text-align:center;color:var(--gold)"><strong>235/19  MAX</strong></td></tr>
+          <tr><td style="padding:.3rem;text-align:center">(0,3)</td><td style="text-align:center">9</td></tr>
+        </table>
+      </div></div>
+      <div class="answer-box"><div class="answer-label"> Final Answer</div><div class="answer-val">Maximum Z = 235/19 at (20/19, 45/19)</div></div>
+      <div class="cbse-tip"> <strong>CBSE Tip:</strong> Corner-point table is COMPULSORY. Shade feasible region. State conclusion: "Maximum value of Z is __ at point (__, __)". Never skip the table!</div>
+    </div>
+  </div>
+</div>
 
-            <footer>Made with <span class="heart">â¤</span> by Poku â€” For <strong>Ishu's (My Wife)</strong> Board Mission
-                2026 Â· 80/80 ðŸŽ¯</footer>
-        </div>
-        <script>
-            function toggle(btn) {
-                const body = btn.nextElementSibling;
-                body.classList.toggle('open');
-                btn.textContent = body.classList.contains('open') ? 'ðŸ™ˆ Hide Solution' : 'ðŸ‘ï¸ Show Step-by-Step Solution';
-                if (body.classList.contains('open') && window.MathJax) MathJax.typesetPromise([body]);
-            }
-            function showCh(id, btn) {
-                document.querySelectorAll('.ch-section').forEach(s => s.classList.remove('active'));
-                document.querySelectorAll('.ch-tab').forEach(b => b.classList.remove('active'));
-                document.getElementById(id).classList.add('active');
-                btn.classList.add('active');
-                if (window.MathJax) MathJax.typesetPromise();
-            }
-        </script>
+<!-- CH13 -->
+<div class="ch-section" id="ch13">
+  <div class="section-head"> Chapter 13: Probability <span class="marks-badge">~8 Marks Board</span></div>
+  <div class="example-card" style="--accent:#34d399">
+    <div class="ex-header"><span class="ex-num">Example 1</span><span class="ex-marks" style="background:rgba(52,211,153,.15);color:var(--green)">5 Marks</span><span class="ex-type">Bayes' Theorem</span></div>
+    <div class="question-block"><div class="q-label">Question</div><div class="q-text">Bag I: 4 red + 4 black. Bag II: 2 red + 6 black. One bag chosen at random, one ball drawn is red. Find P(Bag I was chosen).</div></div>
+    <button class="solution-toggle" onclick="tog(this)"> Show Solution</button>
+    <div class="solution-body">
+      <div class="step"><div class="step-num">1</div><div class="step-content">Let E=Bag I, E=Bag II, A=Red ball.<div class="formula">$P(E_1)=\frac{1}{2},\quad P(E_2)=\frac{1}{2}$</div></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><div class="formula">$P(A|E_1)=\frac{4}{8}=\frac{1}{2},\quad P(A|E_2)=\frac{2}{8}=\frac{1}{4}$</div></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content">Total probability P(A):<div class="formula">$=\frac{1}{2}\cdot\frac{1}{2}+\frac{1}{2}\cdot\frac{1}{4}=\frac{1}{4}+\frac{1}{8}=\frac{3}{8}$</div></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content">Bayes' Theorem:<div class="formula">$P(E_1|A)=\frac{P(E_1)\cdot P(A|E_1)}{P(A)}=\frac{\frac{1}{4}}{\frac{3}{8}}=\frac{2}{3}$</div></div></div>
+      <div class="answer-box"><div class="answer-label"> Final Answer</div><div class="answer-val">$P(E_1|A) = \dfrac{2}{3}$</div></div>
+      <div class="cbse-tip"> <strong>CBSE Tip:</strong> 4 steps mandatory: (1) Define events (2) Write P(Eᵢ) (3) Write P(A|Eᵢ) (4) Compute P(A) THEN Bayes. Missing any step = marks cut!</div>
+    </div>
+  </div>
+</div>
 
-        <!-- CH1: RELATIONS & FUNCTIONS -->
-        <div class="ch-section" id="ch1">
-            <div class="section-head"> Ch 1: Relations & Functions <span class="marks-badge">~5 Marks in Board</span></div>
-            <div class="example-card"><style>#ch1 .example-card::before{background:#60a5fa}</style>
-                <div class="ex-header"><div class="ex-num">Example 1</div><span class="ex-marks" style="background:rgba(96,165,250,.12);color:var(--blue)">5 Marks</span><span class="ex-type">Equivalence Relation</span></div>
-                <div class="question-block"><div class="q-label">Question</div><div class="q-text">Show that R = {(a,b): 2 divides (a-b)} on Z is an equivalence relation.</div></div>
-                <button class="solution-toggle" onclick="toggle(this)"> Show Step-by-Step Solution</button>
-                <div class="solution-body">
-                    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Reflexive:</strong> a-a=0=20, so 2|(a-a). Hence (a,a)R for all a.  R is Reflexive.</div></div>
-                    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Symmetric:</strong> Let (a,b)R  a-b=2k. Then b-a=-2k=2(-k)  (b,a)R.  R is Symmetric.</div></div>
-                    <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Transitive:</strong> (a,b)R and (b,c)R  a-b=2k and b-c=2k. So a-c=2(k+k)  (a,c)R.  R is Transitive.</div></div>
-                    <div class="answer-box"><div class="answer-label"> Conclusion</div><div class="answer-val">R is Reflexive + Symmetric + Transitive  R is an Equivalence Relation. </div></div>
-                    <div class="cbse-tip"> <strong>CBSE Tip:</strong> Write all 3 properties separately. Each = 1 mark. End with "Hence R is an Equivalence Relation".</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- CH2: INVERSE TRIG -->
-        <div class="ch-section" id="ch2">
-            <div class="section-head"> Ch 2: Inverse Trigonometry <span class="marks-badge">~5 Marks in Board</span></div>
-            <div class="example-card"><style>#ch2 .example-card::before{background:#a78bfa}</style>
-                <div class="ex-header"><div class="ex-num">Example 1</div><span class="ex-marks" style="background:rgba(167,139,250,.12);color:var(--purple)">2 Marks</span><span class="ex-type">Principal Value</span></div>
-                <div class="question-block"><div class="q-label">Question</div><div class="q-text">Find the principal value of $\cos^{-1}\!\left(-\dfrac{\sqrt{3}}{2}\right)$</div></div>
-                <button class="solution-toggle" onclick="toggle(this)"> Show Step-by-Step Solution</button>
-                <div class="solution-body">
-                    <div class="step"><div class="step-num">1</div><div class="step-content">Use: $\cos^{-1}(-x) = \pi - \cos^{-1}(x)$<div class="formula">$\cos^{-1}\!\left(-\frac{\sqrt{3}}{2}\right) = \pi - \cos^{-1}\!\left(\frac{\sqrt{3}}{2}\right)$</div></div></div>
-                    <div class="step"><div class="step-num">2</div><div class="step-content">Since $\cos\frac{\pi}{6} = \frac{\sqrt{3}}{2}$:<div class="formula">$= \pi - \frac{\pi}{6} = \frac{5\pi}{6}$</div></div></div>
-                    <div class="answer-box"><div class="answer-label"> Final Answer</div><div class="answer-val">$\boxed{\dfrac{5\pi}{6}}$</div></div>
-                    <div class="cbse-tip"> <strong>CBSE Tip:</strong> cos(-x) = π - cos(x). NOT negative! This is the most common mistake in ITF. Memorize this identity.</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- CH3: MATRICES -->
-        <div class="ch-section" id="ch3">
-            <div class="section-head"> Ch 3: Matrices <span class="marks-badge">~5 Marks in Board</span></div>
-            <div class="example-card"><style>#ch3 .example-card::before{background:#34d399}</style>
-                <div class="ex-header"><div class="ex-num">Example 1</div><span class="ex-marks" style="background:rgba(52,211,153,.12);color:var(--green)">3 Marks</span><span class="ex-type">Sym + Skew Decomposition</span></div>
-                <div class="question-block"><div class="q-label">Question</div><div class="q-text">Express $A = \begin{pmatrix}3&5\\1&-1\end{pmatrix}$ as sum of a Symmetric and Skew-Symmetric matrix.</div></div>
-                <button class="solution-toggle" onclick="toggle(this)"> Show Step-by-Step Solution</button>
-                <div class="solution-body">
-                    <div class="step"><div class="step-num">1</div><div class="step-content">$A^T = \begin{pmatrix}3&1\\5&-1\end{pmatrix}$</div></div>
-                    <div class="step"><div class="step-num">2</div><div class="step-content">Symmetric part $P = \frac{A+A^T}{2} = \frac{1}{2}\begin{pmatrix}6&6\\6&-2\end{pmatrix} = \begin{pmatrix}3&3\\3&-1\end{pmatrix}$. Check: $P=P^T$ </div></div>
-                    <div class="step"><div class="step-num">3</div><div class="step-content">Skew-Symmetric part $Q = \frac{A-A^T}{2} = \frac{1}{2}\begin{pmatrix}0&4\\-4&0\end{pmatrix} = \begin{pmatrix}0&2\\-2&0\end{pmatrix}$. Check: $Q^T=-Q$ </div></div>
-                    <div class="answer-box"><div class="answer-label"> Final Answer</div><div class="answer-val">$A = \begin{pmatrix}3&3\\3&-1\end{pmatrix} + \begin{pmatrix}0&2\\-2&0\end{pmatrix}$</div></div>
-                    <div class="cbse-tip"> <strong>CBSE Tip:</strong> Always verify P=P^T and Q=-Q. Diagonal of skew-symmetric is always zero!</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- CH9: DIFF EQUATIONS -->
-        <div class="ch-section" id="ch9">
-            <div class="section-head"> Ch 9: Differential Equations <span class="marks-badge">~6 Marks in Board</span></div>
-            <div class="example-card"><style>#ch9 .example-card::before{background:#a78bfa}</style>
-                <div class="ex-header"><div class="ex-num">Example 1</div><span class="ex-marks" style="background:rgba(167,139,250,.12);color:var(--purple)">5 Marks</span><span class="ex-type">Linear DE</span></div>
-                <div class="question-block"><div class="q-label">Question</div><div class="q-text">Solve: $\dfrac{dy}{dx} + \dfrac{y}{x} = x^2$</div></div>
-                <button class="solution-toggle" onclick="toggle(this)"> Show Step-by-Step Solution</button>
-                <div class="solution-body">
-                    <div class="step"><div class="step-num">1</div><div class="step-content">Form: $\frac{dy}{dx}+Py=Q$ where $P=\frac{1}{x}$, $Q=x^2$.</div></div>
-                    <div class="step"><div class="step-num">2</div><div class="step-content">I.F. $= e^{\int\frac{1}{x}dx} = e^{\ln x} = x$</div></div>
-                    <div class="step"><div class="step-num">3</div><div class="step-content">Multiply both sides by I.F.:<div class="formula">$\frac{d}{dx}(xy) = x^3$</div></div></div>
-                    <div class="step"><div class="step-num">4</div><div class="step-content">Integrate both sides:<div class="formula">$xy = \frac{x^4}{4} + C$</div></div></div>
-                    <div class="answer-box"><div class="answer-label"> General Solution</div><div class="answer-val">$\boxed{xy = \dfrac{x^4}{4} + C}$</div></div>
-                    <div class="cbse-tip"> <strong>CBSE Tip:</strong> Steps: (1) Identify P, Q (2) Find I.F. (3) Multiply (4) Integrate. Always write +C. This exact format is what CBSE expects!</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- CH10: VECTORS -->
-        <div class="ch-section" id="ch10">
-            <div class="section-head"> Ch 10: Vector Algebra <span class="marks-badge">~6 Marks in Board</span></div>
-            <div class="example-card"><style>#ch10 .example-card::before{background:#f59e0b}</style>
-                <div class="ex-header"><div class="ex-num">Example 1</div><span class="ex-marks" style="background:rgba(245,158,11,.12);color:var(--gold)">4 Marks</span><span class="ex-type">Dot Product & Angle</span></div>
-                <div class="question-block"><div class="q-label">Question</div><div class="q-text">If $\vec{a} = \hat{i}+2\hat{j}-3\hat{k}$ and $\vec{b} = 3\hat{i}-\hat{j}+2\hat{k}$, find $\vec{a}\cdot\vec{b}$ and angle between them.</div></div>
-                <button class="solution-toggle" onclick="toggle(this)"> Show Step-by-Step Solution</button>
-                <div class="solution-body">
-                    <div class="step"><div class="step-num">1</div><div class="step-content">Dot product:<div class="formula">$\vec{a}\cdot\vec{b} = (1)(3)+(2)(-1)+(-3)(2) = 3-2-6 = -5$</div></div></div>
-                    <div class="step"><div class="step-num">2</div><div class="step-content">Magnitudes: $|\vec{a}|=\sqrt{1+4+9}=\sqrt{14}$, $|\vec{b}|=\sqrt{9+1+4}=\sqrt{14}$</div></div>
-                    <div class="step"><div class="step-num">3</div><div class="step-content">Angle:<div class="formula">$\cos\theta = \frac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|} = \frac{-5}{14}$, so $\theta = \cos^{-1}\!\left(\frac{-5}{14}\right)$</div></div></div>
-                    <div class="answer-box"><div class="answer-label"> Final Answer</div><div class="answer-val">$\vec{a}\cdot\vec{b} = -5$, $~\theta = \cos^{-1}\!\left(\dfrac{-5}{14}\right)$</div></div>
-                    <div class="cbse-tip"> <strong>CBSE Tip:</strong> Perpendicular  dot product = 0. Parallel  cross product = 0. Always find magnitudes separately before computing angle.</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- CH11: 3D GEOMETRY -->
-        <div class="ch-section" id="ch11">
-            <div class="section-head"> Ch 11: 3D Geometry <span class="marks-badge">~7 Marks in Board</span></div>
-            <div class="example-card"><style>#ch11 .example-card::before{background:#f472b6}</style>
-                <div class="ex-header"><div class="ex-num">Example 1</div><span class="ex-marks" style="background:rgba(244,114,182,.12);color:var(--pink)">3 Marks</span><span class="ex-type">Distance Point to Plane</span></div>
-                <div class="question-block"><div class="q-label">Question</div><div class="q-text">Find the distance from point $P(2,3,-1)$ to the plane $3x-4y+12z+13=0$.</div></div>
-                <button class="solution-toggle" onclick="toggle(this)"> Show Step-by-Step Solution</button>
-                <div class="solution-body">
-                    <div class="step"><div class="step-num">1</div><div class="step-content">Formula: $d = \dfrac{|ax_1+by_1+cz_1+d|}{\sqrt{a^2+b^2+c^2}}$</div></div>
-                    <div class="step"><div class="step-num">2</div><div class="step-content">Numerator: $|3(2)+(-4)(3)+12(-1)+13| = |6-12-12+13| = |-5| = 5$</div></div>
-                    <div class="step"><div class="step-num">3</div><div class="step-content">Denominator: $\sqrt{9+16+144} = \sqrt{169} = 13$</div></div>
-                    <div class="answer-box"><div class="answer-label"> Final Answer</div><div class="answer-val">$d = \dfrac{5}{13}$ units</div></div>
-                    <div class="cbse-tip"> <strong>CBSE Tip:</strong> ALWAYS use |absolute value| in numerator  distance is never negative! Write "units" at end. This formula is directly usable  memorize it!</div>
-                </div>
-            </div>
-        </div></body>
-
+<footer>Made with <span class="heart"></span> by Poku  For <strong>Ishu's (My Wife)</strong> Board Mission 2026  80/80 </footer>
+</div>
+<script>
+function tog(btn){
+  const body=btn.nextElementSibling;
+  body.classList.toggle('open');
+  btn.textContent=body.classList.contains('open')?' Hide Solution':' Show Solution';
+  if(body.classList.contains('open')&&window.MathJax)MathJax.typesetPromise([body]);
+}
+function showCh(id,btn){
+  document.querySelectorAll('.ch-section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.ch-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  if(window.MathJax)MathJax.typesetPromise();
+}
+</script>
+</body>
 </html>
